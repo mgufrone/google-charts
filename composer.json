@@ -1,0 +1,23 @@
+{
+    "name": "gufy/google-charts",
+    "description": "",
+    "authors": [
+        {
+            "name": "Mochamad Gufron",
+            "email": "mgufronefendi@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Gufy\\GoogleCharts\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
