@@ -90,8 +90,9 @@ class BaseChart
 
 	public function processData()
 	{
-		if(!empty($this->getColumns()))
-			array_unshift($this->data, $this->getColumns());
+		$columns = $this->getColumns();
+		if(!empty($columns))
+			array_unshift($this->data, $columns);
 
 		return $this->data;
 	}
