@@ -2,22 +2,36 @@
 
 class BaseChart
 {
-	public $id;
-	public $options=[];
-	public $data=[];
-	public $width;
-	public $height;
+	protected $id;
+	protected $options=[];
+	protected $data=[];
+	protected $width;
+	protected $height;	
+	protected $columns=[];
+
+
 	public function __construct()
 	{
-		$this->id = uniqid();
+		$this->id = $this->setId();
 	}
+
+	public function setId()
+	{
+		return uniqid();
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
 	public function render()
 	{
 		$id = $this->id;
-		$options = $this->options;
+		$options = $this->getOptions();
 		$data = $this->processData();
-		$width = $this->width;
-		$height = $this->height;
+		$width = $this->getWidth();
+		$height = $this->getHeight();
 		return \View::make('google-charts::'.$this->getPackage(), compact(
 			'id',
 			'data',
@@ -58,13 +72,42 @@ class BaseChart
 		return $this;
 	}
 
+	public function getOptions()
+	{
+		return $this->options;
+	}
+
+	public function getWidth()
+	{
+		return $this->width;
+	}
+
+	public function getHeight()
+	{
+		return $this->height;
+	}
+
+
 	public function processData()
 	{
+		if(!empty($this->getColumns()))
+			array_unshift($this->data, $this->getColumns());
+
 		return $this->data;
 	}
 
 	public function getPackage()
 	{
 		return '';
+	}
+
+	public function setColumns($columns=[])
+	{
+		$this->columns = $columns;
+		return $this;
+	}
+	public function getColumns()
+	{
+		return $this->columns;
 	}
 }
