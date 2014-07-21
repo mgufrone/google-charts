@@ -88,12 +88,15 @@ class BaseChart
 	}
 
 
-	public function processData()
+	protected function processData()
 	{
 		$columns = $this->getColumns();
 		if(!empty($columns))
 			array_unshift($this->data, $columns);
+	}
 
+	public function getData()
+	{
 		return $this->data;
 	}
 

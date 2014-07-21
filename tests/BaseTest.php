@@ -18,12 +18,13 @@ class BaseTest extends WorkbenchTestCase
 		->setWidth(400)
 		->setHeight(300)
 		->setData($data)
+		->setColumns($columns)
 		;
 
 		$content = $chart->render();
-
+		array_unshift($data, $columns);
 		$this->assertEquals($options, $chart->getOptions());
-		$this->assertEquals($data, $chart->processData());
+		$this->assertEquals($data, $chart->getData());
 		$this->assertEquals(400, $chart->getWidth());
 		$this->assertEquals(300, $chart->getHeight());
 		$this->assertRegExp('/'.$chart->getId().'/', $content->render());
@@ -47,7 +48,9 @@ class BaseTest extends WorkbenchTestCase
 		->setHeight(0)
 		->setData($data)
 		;
-
+		$yAxis = ['title'=>'Screenshot'];
+		$chart->setOptions('yAxis',$yAxis);
+		$this->assertEquals(array_merge($options, $yAxis), $chart->getOptions());
 		$this->assertEquals('auto', $chart->getWidth());
 		$this->assertEquals('auto', $chart->getHeight());
 
@@ -61,5 +64,14 @@ class BaseTest extends WorkbenchTestCase
 
 		$this->assertEquals('auto', $chart->getWidth());
 		$this->assertEquals('auto', $chart->getHeight());
+	}
+
+	public function testBasicCoverage()
+	{
+		$class = new \Gufy\GoogleCharts\Chart\BaseChart;
+		$this->assertEquals('', $class->getPackage());
+
+		$binding_class = $this->app['Line'];
+		$this->assertEquals('Gufy\GoogleCharts\Facade\Line', get_class($binding_class));
 	}
 }
