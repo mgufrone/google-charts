@@ -10,7 +10,11 @@
        dataTable.addColumn({ type: '{{$column['type']}}', id: '{{$column['name']}}' });
     @endforeach
 
-    dataTable.addRows({{json_encode($data)}});
+    dataTable.addRows([
+	    @foreach($data as $row)
+	       [{{implode(",", $row)}}],
+	    @endforeach
+    ]);
 
 
     var options = {{json_encode($options)}};

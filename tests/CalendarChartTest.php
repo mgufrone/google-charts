@@ -28,9 +28,9 @@ class CalendarChartTest extends WorkbenchTestCase
 		setOptions($options)
 		->setWidth(400)
 		->setHeight(300)
-		->setData($data)
 		->addColumn('Date', 'date')
 		->addColumn('Expenses', 'number')
+		->setData($data)
 		;
 
 		$content = $chart->render();
