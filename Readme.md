@@ -2,7 +2,7 @@
 
 This package will give you an easy way to create a chart with Google Charts.
 
-[![Build Status](https://travis-ci.org/mgufrone/google-charts.svg?branch=master)](https://travis-ci.org/mgufrone/google-charts) [![Coverage Status](https://img.shields.io/coveralls/mgufrone/google-charts.svg)](https://coveralls.io/r/mgufrone/google-charts?branch=master)
+[![Build Status](https://travis-ci.org/mgufrone/google-charts.svg?branch=master)](https://travis-ci.org/mgufrone/google-charts) [![Coverage Status](https://img.shields.io/coveralls/mgufrone/google-charts.svg)](https://coveralls.io/r/mgufrone/google-charts?branch=master) [![Total Downloads](https://poser.pugx.org/gufy/google-charts/downloads.svg)](https://packagist.org/packages/gufy/google-charts) [![Latest Stable Version](https://poser.pugx.org/gufy/google-charts/v/stable.svg)](https://packagist.org/packages/gufy/google-charts)
 
 Installation
 ============

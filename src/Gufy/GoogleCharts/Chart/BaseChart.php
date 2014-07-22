@@ -32,12 +32,15 @@ class BaseChart
 		$data = $this->processData();
 		$width = $this->getWidth();
 		$height = $this->getHeight();
+		$chart = $this;
+		
 		return \View::make('google-charts::'.$this->getPackage(), compact(
 			'id',
 			'data',
 			'options',
 			'width',
-			'height'
+			'height',
+			'chart'
 		));
 	}
 
@@ -93,6 +96,7 @@ class BaseChart
 		$columns = $this->getColumns();
 		if(!empty($columns))
 			array_unshift($this->data, $columns);
+		return $this->data;
 	}
 
 	public function getData()

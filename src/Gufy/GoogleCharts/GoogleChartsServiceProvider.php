@@ -33,6 +33,7 @@ class GoogleChartsServiceProvider extends ServiceProvider {
 			'Area',
 			'Bar',
 			'Bubble',
+			'Calendar',
 			'Line',
 		];
 		foreach ($classList as $className) {
